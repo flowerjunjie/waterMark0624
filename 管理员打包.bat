@@ -1,4 +1,5 @@
 @echo off
+chcp 65001
 
 :: 请求管理员权限
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
@@ -20,8 +21,16 @@ if '%errorlevel%' NEQ '0' (
 
 echo 开始打包水印工具...
 
-:: 确保已经生成了最新的构建
-call npm run build
+:: 检查并安装所需依赖
+echo 检查并安装依赖...
+call npm install class-variance-authority --save
+call npm install lucide-react --save
+call npm install clsx --save
+call npm install tailwind-merge --save
+
+:: 使用npx执行vite构建
+echo 正在构建项目...
+call npx vite build --debug
 
 echo 正在构建可执行文件...
 call npm run electron:package
