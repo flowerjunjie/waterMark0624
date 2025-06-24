@@ -1,0 +1,22 @@
+{
+  "appId": "com.watermark.app",
+  "productName": "水印工具",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "dist/**/*",
+    "electron.js",
+    "package.json"
+  ],
+  "win": {
+    "target": [
+      "portable"
+    ],
+    "icon": "public/favicon.ico"
+  },
+  "portable": {
+    "artifactName": "水印工具.exe"
+  },
+  "publish": null
+} 
