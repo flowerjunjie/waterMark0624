@@ -12,8 +12,15 @@ function createWindow() {
       nodeIntegration: true,
       contextIsolation: false
     },
-    icon: path.join(__dirname, 'public/app-icon.ico')
+    icon: path.join(__dirname, 'public/favicon.ico'),
+    title: '水印工具'
   });
+  
+  // 设置任务栏图标和标题图标
+  if (process.platform === 'win32') {
+    mainWindow.setIcon(path.join(__dirname, 'public/favicon.ico'));
+    app.setAppUserModelId(process.execPath);
+  }
 
   const startUrl = url.format({
     pathname: path.join(__dirname, './dist/index.html'),
