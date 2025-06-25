@@ -12,7 +12,7 @@ function createWindow() {
       nodeIntegration: true,
       contextIsolation: false
     },
-    icon: path.join(__dirname, 'public/favicon.ico')
+    icon: path.join(__dirname, 'public/app-icon.ico')
   });
 
   const startUrl = url.format({

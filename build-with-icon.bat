@@ -1,0 +1,19 @@
+@echo off
+echo Creating electron cache directory...
+mkdir "%LOCALAPPDATA%\electron\Cache" 2>nul
+
+echo Copying local electron package...
+copy /Y "electron-v13.6.9-win32-x64.zip" "%LOCALAPPDATA%\electron\Cache\" >nul
+
+echo Setting environment variables...
+set ELECTRON_CACHE=%LOCALAPPDATA%\electron\Cache
+set ELECTRON_SKIP_BINARY_DOWNLOAD=1
+
+echo Building React application...
+call npm run build
+
+echo Packaging with electron-builder...
+call npx electron-builder --win --config electron-builder.json
+
+echo Done! Opening release folder...
+explorer release\win-unpacked
