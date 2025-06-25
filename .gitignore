@@ -42,6 +42,9 @@ desktop.ini
 # Electron打包
 /out
 /release
+electron-v*.zip
+electron-v*.zip.part
+electron-v*.zip.crdownload
 
 # 临时文件
 .temp
